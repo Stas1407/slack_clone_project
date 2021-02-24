@@ -30,13 +30,13 @@ function Header() {
 export default Header
 
 const Container = styled.div`
-    background: #350d36;
+    background-color: rgb(5, 5, 5, 0.88);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
     box-shadow: 0 1px 0 0 rgb(255 255 255 / 10%);
+    z-index: 10;
 `
 
 const Main = styled.div`
@@ -86,13 +86,14 @@ const Name = styled.div`
 `
 
 const UserImage = styled.div` 
-    width: 28px;
-    height: 28px;
-    border: 2px solid white;
-    border-radius: 3px;
+    width: 30px;
+    height: 30px;
+    border: none;
 
     img {
         width: 100%;
         height: 100%;
+        border: 2px solid white;
+        border-radius: 50%;
     }
 ` 

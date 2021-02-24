@@ -50,7 +50,8 @@ function Sidebar() {
 export default Sidebar
 
 const Container = styled.div`
-    background-color: #3F0E40;
+    background-color: rgba(10, 10, 10, 0.88);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
 `
 
 const WorkspaceContainer = styled.div`
@@ -61,7 +62,7 @@ const WorkspaceContainer = styled.div`
     padding-left: 10%;
     padding-right: 10%;
     justify-content: space-between;
-    border-bottom: 1px solid #532753;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 `
 
 const Name = styled.div`
@@ -100,7 +101,7 @@ const MainChannelItem = styled.div`
     padding-top: 5px;
     cursor: pointer;
     :hover{
-        background: #350D36;
+        background: rgb(5, 5, 5, 0.7);
     }
 `
 
@@ -133,6 +134,6 @@ const Channel = styled.div`
     padding-top: 2px;
     cursor: pointer;
     :hover{
-        background: #350D36;
+        background: rgb(5, 5, 5, 0.7);
     }
 `
