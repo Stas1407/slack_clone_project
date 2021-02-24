@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import ChatInput from './ChatInput'
+import ChatMessage from './ChatMessage'
 
 function Chat() {
     return (
@@ -10,7 +11,6 @@ function Chat() {
                 <ChannelContainer>
                     <Name>
                         # Channel 1
-                        <StarOutlineIcon />
                     </Name>
                     <Description>
                         Some amazing channel
@@ -18,9 +18,13 @@ function Chat() {
                 </ChannelContainer>
                 <DetailsContainer>
                     Details 
-                    <HelpOutlineIcon />
+                    <InfoOutlinedIcon />
                 </DetailsContainer>
             </Header>
+            <MessageContainer>
+                <ChatMessage />
+            </MessageContainer>
+            <ChatInput />
         </Container>
     )
 }
@@ -30,25 +34,28 @@ export default Chat
 const Container = styled.div`
     height: 100%;
     background-color: rgba(10, 10, 10, 0.88);
+    display: grid;
+    grid-template-rows: 65px auto min-content;
 `
 
 const Header = styled.div`
     display: flex;
     justify-content: space-between;
-    height: 40px;
-    padding-top: 10px;
     color: rgba(255, 255, 255, 0.85);
+    padding-left: 30px;
+    padding-right: 30px;
 `
 
 const ChannelContainer = styled.div`
-    padding-left: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 `
 
 const DetailsContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 30px;
     height: 100%;
     font-size: 19px;
     cursor: pointer;
@@ -60,11 +67,8 @@ const DetailsContainer = styled.div`
 `
 
 const Name = styled.div`
-    display: flex;
     font-size: 23px;
-    align-items: center;
     font-weight: bold;
-    height: 100%;
 
     svg{
         margin-left: 5%;
@@ -74,4 +78,8 @@ const Name = styled.div`
 
 const Description = styled.div`
 
+`
+
+const MessageContainer = styled.div`
+    padding-top: 15px;
 `
