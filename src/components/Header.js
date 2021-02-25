@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
-function Header() {
+function Header({ user, signOut }) {
     return (
         <Container>
             <Main>
@@ -17,10 +17,10 @@ function Header() {
             </Main>
             <UserContainer>
                 <Name>
-                    Stas
+                    {user.name}
                 </Name>
-                <UserImage>
-                    <img src="https://i.imgur.com/6VBx3io.png" alt=""/>
+                <UserImage onClick={signOut}>
+                    <img src={user.photo ? user.photo : "https://i.imgur.com/6VBx3io.png"} alt=""/>
                 </UserImage>
             </UserContainer>
         </Container>
@@ -51,7 +51,7 @@ const SearchContainer = styled.div`
 
 const Search = styled.div`
     width: 100%;
-    box-shadow: inset 0 0 0 1px rgb(104 74 104);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -89,6 +89,7 @@ const UserImage = styled.div`
     width: 30px;
     height: 30px;
     border: none;
+    cursor: pointer;
 
     img {
         width: 100%;
