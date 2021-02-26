@@ -8,7 +8,7 @@ function NoChannel() {
                 <Text>
                     Please select a channel or create one.
                 </Text>
-                <img src="https://cdn.pixabay.com/photo/2016/05/30/14/23/detective-1424831__340.png" />
+                <img src="https://cdn.pixabay.com/photo/2016/05/30/14/23/detective-1424831__340.png" alt=""/>
             </Wrapper>
         </Container>
     )
