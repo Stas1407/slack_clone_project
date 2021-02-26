@@ -17,7 +17,7 @@ function Chat({ user }) {
         db.collection('rooms')
         .doc(channelId)
         .collection('messages')
-        .orderBy('timestamp', 'asc')
+        .orderBy('timestamp', 'desc')
         .onSnapshot((snapshot) => {
             let messages = snapshot.docs.map((doc) => doc.data());
             setMessages(messages);
@@ -49,7 +49,7 @@ function Chat({ user }) {
     useEffect(() =>{
         getChannel();
         getMessages();
-    }, [channelId])
+    }, [channelId]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <Container>
@@ -76,6 +76,7 @@ function Chat({ user }) {
                             name={data.user}
                             image={data.userImage}
                             timestamp={data.timestamp}
+                            key={index}
                         />
                     ))
                 }
@@ -140,7 +141,7 @@ const Description = styled.div`
 const MessageContainer = styled.div`
     padding-top: 15px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     overflow-y: scroll;
     -ms-overflow-style: none;  
     scrollbar-width: none; 

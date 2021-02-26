@@ -6,6 +6,7 @@ import Login from './components/Login'
 import styled from 'styled-components'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
+import NoChannel from './components/NoChannel'
 import db from './firebase'
 import {useEffect, useState} from 'react'
 import { auth } from "./firebase"
@@ -51,7 +52,7 @@ function App() {
                   <Chat user={user} />
                 </Route>
                 <Route path="/">
-                  Select or create channel.
+                  <NoChannel />
                 </Route>
               </Switch>
             </Main>

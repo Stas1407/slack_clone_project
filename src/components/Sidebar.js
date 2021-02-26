@@ -9,9 +9,15 @@ import { useHistory } from 'react-router-dom';
 function Sidebar(props) {
 
     const history = useHistory();
+    let current_channel = false;
 
-    const goToChannel = (id) => {
+    const goToChannel = (e, id) => {
         if(id){
+            if(current_channel){
+                current_channel.style.backgroundColor = "";
+            }
+            e.currentTarget.style.backgroundColor = "rgba(10, 10, 10, 0.7)";
+            current_channel = e.currentTarget;
             history.push(`/room/${id}`)
         }
     }
@@ -37,8 +43,8 @@ function Sidebar(props) {
             </WorkspaceContainer>
             <MainChannels>
                 {
-                    sidebarItemsData.map(item => (
-                        <MainChannelItem>
+                    sidebarItemsData.map((item, index) => (
+                        <MainChannelItem key={index}>
                             {item.icon}
                             {item.text}
                         </MainChannelItem>
@@ -54,8 +60,8 @@ function Sidebar(props) {
                 </NewChannelContainer>
                 <ChannelsList>
                     {
-                        props.rooms.map(item => (
-                            <Channel onClick={() => goToChannel(item.id)}>
+                        props.rooms.map((item, index) => (
+                            <Channel key={index} id={index} onClick={(e) => goToChannel(e, item.id)}>
                                # {item.name}
                             </Channel>
                         ))
@@ -153,6 +159,6 @@ const Channel = styled.div`
     padding-top: 2px;
     cursor: pointer;
     :hover{
-        background: rgb(5, 5, 5, 0.7);
+        background-color: rgb(5, 5, 5, 0.7);
     }
 `
